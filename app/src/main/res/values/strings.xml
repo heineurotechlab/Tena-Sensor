@@ -1,8 +1,12 @@
 <resources>
+    <!-- Global String Resources -->
+    <string name="slogan">Bringing rehabilitation\nfrom the clinic to your home</string>
+
     <!-- activity_bluetooth.xml String Resources -->
     <string name="btnCalibrateSensorString">Calibrate Sensor</string>
     <string name="btnSensorExercisesString">Sensor Exercises</string>
     <string name="btnConnectToSensorString">Connect to Sensor</string>
+    <string name="connectSensorString">Connect Sensor</string>
 
     <!-- activity_login_firebase.xml & activity_create_account.xml String Resources -->
     <string name="btnSignInString">Sign In</string>
@@ -59,5 +63,4 @@
     <string name="connectionSuccessfulMessage"><b>You are now connected.</b> \nYour T\'ena Sensor is now connected.</string>
     <string name="btnFinishPairingString">Finish</string>
 
-    <string name="slogan">Bringing rehabilitation\nfrom the clinic to your home</string>
 </resources>

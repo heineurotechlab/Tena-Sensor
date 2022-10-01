@@ -49,7 +49,6 @@ import com.amazonaws.regions.Regions;
 public class BluetoothConnect extends Fragment {
 
     // GUI Components
-    private TextView mSpeedBuffer, mSmoothnessBuffer, mTimeBuffer;
     private ImageView connectedImage, disconnectedImage;
     private BluetoothAdapter mBTAdapter;
     private Set<BluetoothDevice> mPairedDevices;
@@ -87,14 +86,6 @@ public class BluetoothConnect extends Fragment {
     Runnable mStatusChecker = new Runnable() {
         @Override
         public void run() {
-            /*if(BluetoothService.getOutputSpeed() != null) {
-                mSpeedBuffer.setText(BluetoothService.getOutputSpeed());
-                mSmoothnessBuffer.setText((BluetoothService.getOutputSmoothness()));
-                mTimeBuffer.setText(BluetoothService.getOutputTime());
-            }*/
-            mSpeedBuffer.setText(speed);
-            mSmoothnessBuffer.setText(smoothness);
-            mTimeBuffer.setText(time);
             if(connected) {
                 connectedImage.setVisibility(View.VISIBLE);
                 disconnectedImage.setVisibility(View.INVISIBLE);
@@ -144,9 +135,6 @@ public class BluetoothConnect extends Fragment {
         NAME = (String) savedDevices.get("2");
 
         // Instantiate GUI components
-        mSpeedBuffer = (TextView) view.findViewById(R.id.speedBuffer);
-        mSmoothnessBuffer = (TextView) view.findViewById(R.id.smoothnessBuffer);
-        mTimeBuffer = (TextView) view.findViewById(R.id.timeBuffer);
 
         // Fields for entering IP and Port Number (not for final app)
         /*EditText text = view.findViewById(R.id.ip);

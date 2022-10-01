@@ -4,13 +4,13 @@
             "outputFile": "TenaSensor.Android.app-mergeDebugResources-35:/values-normal-v4/values-normal-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Crely_Yos\\Documents\\Tena-Sensor\\app\\src\\main\\res\\values-normal\\dimens.xml",
+                    "source": "C:\\Users\\admin\\Documents\\AndroidStudio\\TenaSensor\\app\\src\\main\\res\\values-normal\\dimens.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
-                        "startOffsets": "59",
+                        "startOffsets": "56",
                         "endColumns": "43",
-                        "endOffsets": "98"
+                        "endOffsets": "95"
                     },
                     "to": {
                         "startLines": "2",
