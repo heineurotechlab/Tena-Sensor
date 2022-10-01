@@ -23,11 +23,12 @@
     <!-- activity_instructions String Resources -->
     <string name="instructionsHeaderString">Instructions</string>
     <string name="block_instructions"><li>Place your hand flat on the table.</li>
-        \n\n<li>On the green \'go\' signal, grasp the block and place it on the top of the shelf.</li>
+        \n\n<li>When prompted, grasp the block and place it on the top of the shelf.</li>
         \n\n<li>Return your hand to the table.</li>
     </string>
     <string name="water_instructions"><li>Place your hand flat on the table.</li>
-        \n\n<li>On the green \'go\' signal, grasp the block and place it on the top of the shelf.</li>
+        \n\n<li>When prompted, grasp the can and bring it up to your lips.</li>
+        \n\n<li>Place the can back on the start position.</li>
         \n\n<li>Return your hand to the table.</li>
     </string>
     <string name="cup_instructions"><li>Place your hand flat on the table.</li>
@@ -35,27 +36,27 @@
         \n\n<li>Return your hand to the table.</li>
     </string>
     <string name="rod_instructions"><li>Place your hand flat on the table.</li>
-        \n\n<li>On the green \'go\' signal, grasp the block and place it on the top of the shelf.</li>
+        \n\n<li>When prompted, grasp the pencil and place it in the holder.</li>
         \n\n<li>Return your hand to the table.</li>
     </string>
-    <string name="btnGoToDataCollectionString">Click to Collect Data</string>
+    <string name="btnGoToDataCollectionString">Click to start data collection </string>
 
     <!-- activity_record_data.xml String Resources -->
     <string name="stopExerciseString">Exit Exercise</string>
-    <string name="nextTrialString">Perform the next trial</string>
+    <string name="nextTrialString">Next trial</string>
     <string name="stopCollectionString">Stop Data Collection</string>
 
     <!-- activity_calibration.xml String Resources -->
     <string name="sensorCalibration">Sensor Calibration</string>
-    <string name="calibrationInstructionString">Place the sensor on a flat surface\nWhen ready, tap Calibrate Sensor</string>
+    <string name="calibrationInstructionString">Place the T\'ena sensor \non a level surface.</string>
     <string name="btnStartCalibrateString">Calibrate Sensor</string>
-    <string name="selectExerciseString">Select an Exercise to Perform</string>
+    <string name="selectExerciseString">Sensor Exercises</string>
 
     <!-- fragment_bluetooth.xml String Resources -->
     <string name="listOfDevicesHeader">List of devices</string>
     <string name="devicePairingHeader">Choose the device you want to pair with</string>
     <string name="availableDevicesHeader">AVAILABLE DEVICES</string>
-    <string name="connectionSuccessfulMessage">Your T\'ena Sensor has now been successfully connected.</string>
+    <string name="connectionSuccessfulMessage"><b>You are now connected.</b> \nYour T\'ena Sensor is now connected.</string>
     <string name="btnFinishPairingString">Finish</string>
 
     <string name="slogan">Bringing rehabilitation\nfrom the clinic to your home</string>

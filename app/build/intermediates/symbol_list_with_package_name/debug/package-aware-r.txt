@@ -1965,6 +1965,7 @@ dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
+dimen fontSize
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -2540,6 +2541,7 @@ drawable design_snackbar_background
 drawable drinkglass
 drawable emgdata_icon
 drawable emgdata_icon_grey
+drawable error
 drawable finger_nose_icon
 drawable fingertonose
 drawable googleg_disabled_color_18
@@ -2638,7 +2640,9 @@ drawable sensor_disconnected
 drawable sensorwhitemdpi
 drawable settings
 drawable sfstate
+drawable startposition2
 drawable stop_icon
+drawable success
 drawable tena_loadinggif
 drawable tena_loadinggif_squares
 drawable tena_loadinggif_triangles
@@ -2664,7 +2668,6 @@ id ExerciseInstructions
 id ExerciseText
 id FUNCTION
 id FinishBT
-id LinearLayout0
 id LinearLayout02
 id META
 id NO_DEBUG
@@ -3116,7 +3119,6 @@ id sin
 id skipCollapsed
 id skipped
 id slide
-id smoothnessBuffer
 id snackbar_action
 id snackbar_text
 id snap
@@ -3124,7 +3126,6 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
-id speedBuffer
 id spline
 id split_action_bar
 id spread
@@ -3184,7 +3185,6 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
-id timeBuffer
 id title
 id titleDividerNoCustom
 id title_template
@@ -3618,6 +3618,7 @@ string register_title
 string rod_instructions
 string search_menu_title
 string selectExerciseString
+string sensorCalibration
 string slogan
 string status_bar_notification_info_overflow
 string stopCollectionString

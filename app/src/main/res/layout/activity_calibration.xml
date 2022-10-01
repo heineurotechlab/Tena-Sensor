@@ -35,9 +35,9 @@
             android:id="@+id/calibrate_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
-            android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:paddingHorizontal="80dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/calibration1" />
 
     </LinearLayout>
@@ -57,7 +57,7 @@
             android:id="@+id/calibrate_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
+            android:paddingBottom="200dp"
             android:gravity="center"
             android:textColor="@color/colorText"
             android:textSize="@dimen/fontSize"
