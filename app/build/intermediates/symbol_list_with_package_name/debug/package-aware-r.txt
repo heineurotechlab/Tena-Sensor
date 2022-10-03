@@ -1974,6 +1974,8 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen imageOffset
+dimen imageSize
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
@@ -2779,10 +2781,6 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id bt_both
-id bt_cancel
-id bt_cloud
-id bt_sdcard
 id bt_status
 id btn_login
 id btn_signup
@@ -3145,7 +3143,6 @@ id staticPostLayout
 id stop
 id stopExercise
 id stretch
-id subTitle
 id submenuarrow
 id submit_area
 id supportScrollUp
@@ -3208,7 +3205,6 @@ id useLogo
 id username
 id vertical_only
 id videoView
-id view
 id view_offset_helper
 id view_pager
 id view_transition
@@ -3403,8 +3399,6 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
-layout myradioview
-layout mytextview
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -3431,7 +3425,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-layout upload_dialog
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round

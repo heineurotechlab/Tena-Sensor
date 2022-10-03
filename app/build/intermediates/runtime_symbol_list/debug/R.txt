@@ -1973,6 +1973,8 @@ int dimen hint_alpha_material_dark 0x7f06009f
 int dimen hint_alpha_material_light 0x7f0600a0
 int dimen hint_pressed_alpha_material_dark 0x7f0600a1
 int dimen hint_pressed_alpha_material_light 0x7f0600a2
+int dimen imageOffset 0x7f060254
+int dimen imageSize 0x7f060255
 int dimen item_touch_helper_max_drag_scroll_per_frame 0x7f0600a3
 int dimen item_touch_helper_swipe_escape_max_velocity 0x7f0600a4
 int dimen item_touch_helper_swipe_escape_velocity 0x7f0600a5
@@ -2778,10 +2780,6 @@ int id browser_actions_menu_item_icon 0x7f080079
 int id browser_actions_menu_item_text 0x7f08007a
 int id browser_actions_menu_items 0x7f08007b
 int id browser_actions_menu_view 0x7f08007c
-int id bt_both 0x7f08007d
-int id bt_cancel 0x7f08007e
-int id bt_cloud 0x7f08007f
-int id bt_sdcard 0x7f080080
 int id bt_status 0x7f080081
 int id btn_login 0x7f080082
 int id btn_signup 0x7f080083
@@ -3144,7 +3142,6 @@ int id staticPostLayout 0x7f0801e8
 int id stop 0x7f0801e9
 int id stopExercise 0x7f0801ea
 int id stretch 0x7f0801eb
-int id subTitle 0x7f0801ec
 int id submenuarrow 0x7f0801ed
 int id submit_area 0x7f0801ee
 int id supportScrollUp 0x7f0801ef
@@ -3207,7 +3204,6 @@ int id useLogo 0x7f080227
 int id username 0x7f080228
 int id vertical_only 0x7f080229
 int id videoView 0x7f08022a
-int id view 0x7f08022b
 int id view_offset_helper 0x7f08022c
 int id view_pager 0x7f08022d
 int id view_transition 0x7f08022e
@@ -3402,8 +3398,6 @@ int layout mtrl_picker_header_title_text 0x7f0b0069
 int layout mtrl_picker_header_toggle 0x7f0b006a
 int layout mtrl_picker_text_input_date 0x7f0b006b
 int layout mtrl_picker_text_input_date_range 0x7f0b006c
-int layout myradioview 0x7f0b006d
-int layout mytextview 0x7f0b006e
 int layout notification_action 0x7f0b006f
 int layout notification_action_tombstone 0x7f0b0070
 int layout notification_template_custom_big 0x7f0b0071
@@ -3430,7 +3424,6 @@ int layout text_view_with_line_height_from_layout 0x7f0b0085
 int layout text_view_with_line_height_from_style 0x7f0b0086
 int layout text_view_with_theme_line_height 0x7f0b0087
 int layout text_view_without_line_height 0x7f0b0088
-int layout upload_dialog 0x7f0b0089
 int menu menu_main 0x7f0c0000
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001

@@ -175,18 +175,6 @@
         android:paddingVertical="@dimen/button_padding">
 
         <Button
-            android:id="@+id/continueExercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/button_padding"
-            android:layout_weight="1"
-            android:background="@color/colorButton"
-            android:paddingVertical="@dimen/button_padding"
-            android:text="@string/nextTrialString"
-            android:textColor="@color/colorBackground"
-            android:visibility="invisible" />
-
-        <Button
             android:id="@+id/stopExercise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,6 +183,18 @@
             android:background="@color/colorButton"
             android:paddingVertical="@dimen/button_padding"
             android:text="@string/stopExerciseString"
+            android:textColor="@color/colorBackground"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/continueExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/button_padding"
+            android:layout_weight="1"
+            android:background="@color/colorButton"
+            android:paddingVertical="@dimen/button_padding"
+            android:text="@string/nextTrialString"
             android:textColor="@color/colorBackground"
             android:visibility="invisible" />
     </LinearLayout>
