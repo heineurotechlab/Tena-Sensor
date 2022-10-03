@@ -5,4 +5,5 @@
     <dimen name="button_padding">20dp</dimen>
     <dimen name="listTextSize">14dp</dimen>
     <dimen name="fontSize">20sp</dimen>
+    <dimen name="headerSize">30sp</dimen>
 </resources>

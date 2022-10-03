@@ -1,12 +1,10 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     tools:context=".MainActivity">
-    <!--Updated by Ricardo Colin 07/28/17-->
 
 
     <LinearLayout
@@ -14,16 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:visibility="visible"
-            android:background="@color/colorText"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:text="@string/connectSensorString"
             android:ellipsize="end"
             android:textStyle="bold"
@@ -32,117 +24,91 @@
             android:layout_gravity="center"/>
 
         <View
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="2dp"
             android:visibility="visible"
             android:background="@color/colorText"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.45"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="120dp">
-
-                <ImageView
-                    android:id="@+id/connected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/success" />
-
-                <ImageView
-                    android:id="@+id/disconnected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/error" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/calibration1" />
-
-
-
-                <Button
-                    android:id="@+id/ToggleBluetooth"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:background="@android:color/transparent"/>
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/bt_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:gravity="center"
-                android:text="Click the icon to connect your sensor"
-                android:textSize="@dimen/fontSize"
-                android:textColor="@color/colorText"/>
-        </LinearLayout>
-
-
-
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:visibility="visible"
-            android:background="@color/colorText"/>
-
-        <LinearLayout
-            android:id="@+id/LinearLayout02"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:layout_weight="0.1"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:layout_marginVertical="10dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:visibility="invisible">
-            <Button
-                android:id="@+id/CalibrateButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingVertical="@dimen/button_padding"
-                android:layout_weight="1"
-                android:text="@string/btnCalibrateSensorString"
-                android:textColor="@color/colorBackground">
-            </Button>
-            <Button
-                android:id="@+id/ExerciseButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/btnSensorExercisesString"
-                android:textColor="@color/colorBackground">
-            </Button>
-            <Button
-                android:id="@+id/ConnectButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/btnConnectToSensorString"
-                android:textColor="@color/colorBackground">
-            </Button>
-        </LinearLayout>
-
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="120dp"
+            android:paddingBottom="70dp">
+            <ImageView
+                android:id="@+id/connected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/calibration1" />
+            <Button
+                android:id="@+id/ToggleBluetooth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/bt_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minLines="4"
+            android:text="@string/btConnectMessage"
+            android:textSize="@dimen/fontSize"
+            android:textColor="@color/colorText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_marginVertical="10dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+        <Button
+            android:id="@+id/CalibrateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/button_padding"
+            android:layout_weight="1"
+            android:text="@string/btnCalibrateSensorString"
+            android:visibility="invisible"
+            android:textColor="@color/colorBackground">
+        </Button>
+        <Button
+            android:id="@+id/ExerciseButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/button_padding"
+            android:layout_weight="1"
+            android:text="@string/btnSensorExercisesString"
+            android:visibility="invisible"
+            android:textColor="@color/colorBackground">
+        </Button>
+        <Button
+            android:id="@+id/ConnectButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/button_padding"
+            android:text="@string/btnConnectToSensorString"
+            android:visibility="gone"
+            android:textColor="@color/colorBackground">
+        </Button>
+    </LinearLayout>
+
+</FrameLayout>

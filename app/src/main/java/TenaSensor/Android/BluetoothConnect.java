@@ -49,7 +49,8 @@ import com.amazonaws.regions.Regions;
 public class BluetoothConnect extends Fragment {
 
     // GUI Components
-    private ImageView connectedImage, disconnectedImage;
+    private ImageView connectedImage;
+    private ImageView disconnectedImage;
     private BluetoothAdapter mBTAdapter;
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
@@ -57,8 +58,11 @@ public class BluetoothConnect extends Fragment {
     private Handler mHandler; // Our main handler that will receive callback notifications
 
     private TextView status;
-    private Button bluetoothButton, exerciseButton, calibrateButton, connectButton;
-    private static boolean connected = false;
+    private Button bluetoothButton;
+    private Button exerciseButton;
+    private Button calibrateButton;
+    private Button connectButton;
+    private static int connected = 2;
 
     private String name, address;
     private String filename;
@@ -86,20 +90,24 @@ public class BluetoothConnect extends Fragment {
     Runnable mStatusChecker = new Runnable() {
         @Override
         public void run() {
-            if(connected) {
-                connectedImage.setVisibility(View.VISIBLE);
-                disconnectedImage.setVisibility(View.INVISIBLE);
-                exerciseButton.setVisibility(View.VISIBLE);
-                calibrateButton.setVisibility(View.VISIBLE);
-                connectButton.setVisibility(View.GONE);
-                status.setText("Your sensor is connected");
-            } else {
-                exerciseButton.setVisibility(View.GONE);
-                calibrateButton.setVisibility(View.GONE);
-                connectButton.setVisibility(View.VISIBLE);
-                connectedImage.setVisibility(View.INVISIBLE);
-                disconnectedImage.setVisibility(View.VISIBLE);
-                status.setText("Click the icon to connect your sensor");
+            switch (connected) {
+                case 0:
+                    connectedImage.setImageResource(R.drawable.error);
+                    exerciseButton.setVisibility(View.INVISIBLE);
+                    calibrateButton.setVisibility(View.INVISIBLE);
+                    status.setText(R.string.btFailureMessage);
+                    break;
+                case 1:
+                    connectedImage.setImageResource(R.drawable.success);
+                    exerciseButton.setVisibility(View.VISIBLE);
+                    calibrateButton.setVisibility(View.VISIBLE);
+                    status.setText(R.string.btSuccessMessage);
+                    break;
+                case 2:
+                    connectedImage.setImageResource(R.drawable.calibration1);
+                    exerciseButton.setVisibility(View.INVISIBLE);
+                    calibrateButton.setVisibility(View.INVISIBLE);
+                    status.setText(R.string.btConnectMessage);
             }
             mHandler.postDelayed(mStatusChecker, mInterval);
         }
@@ -116,7 +124,6 @@ public class BluetoothConnect extends Fragment {
         calibrateButton = v.findViewById(R.id.CalibrateButton);
         connectButton = v.findViewById(R.id.ConnectButton);
         connectedImage = v.findViewById(R.id.connected);
-        disconnectedImage = v.findViewById(R.id.disconnected);
         status = v.findViewById(R.id.bt_status);
         return v;
     }
@@ -264,7 +271,7 @@ public class BluetoothConnect extends Fragment {
         });
 
         // When directed from T'ena Sensor setup activity (BluetoothSelection.java), retains Bluetooth connection
-        if(bundle != null && !connected){
+        if(bundle != null && connected != 0){
             name = bundle.getString(nameKey);
             address = bundle.getString(addressKey);
             getContext().startService(new Intent(getContext(), BluetoothService.class));
@@ -275,7 +282,7 @@ public class BluetoothConnect extends Fragment {
      * Updates the connection status of the T'ena Sensor
      * @param deviceConnected Boolean describing whether or not the sensor is connected
      */
-    public static void updateView(boolean deviceConnected) {
+    public static void updateView(int deviceConnected) {
         connected = deviceConnected;
     }
 

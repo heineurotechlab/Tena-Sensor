@@ -40,20 +40,19 @@ public class SensorCalibration extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Calibration failed, please try again",Toast.LENGTH_SHORT).show();
                 calibration_failed = false;
             } else if(calibrating == 0) {
-                instruction.setText("Place the sensor on a flat surface\nWhen ready, tap Calibrate Sensor");
-                calibrateBtn.setEnabled(true);
-                calibrateBtn.setText("Calibrate Sensor");
+                instruction.setText(R.string.calibrationStepOneString);
+                calibrateBtn.setVisibility(View.VISIBLE);
                 calibrationImg.setImageResource(R.drawable.calibration1);
             } else if(calibrating == 2) {
-                instruction.setText("Place the sensor on its side.\nWhen ready, tap Calibrate Sensor");
-                calibrateBtn.setEnabled(true);
-                calibrateBtn.setText("Calibrate Sensor");
+                instruction.setText(R.string.calibrationStepTwoString);
+                calibrateBtn.setVisibility(View.VISIBLE);
                 calibrationImg.setImageResource(R.drawable.calibration2);
             } else if(calibrating == 4) {
                 calibrating++;
                 Toast.makeText(getApplicationContext(),"Calibration Successful",Toast.LENGTH_SHORT).show();
-                instruction.setText("Your T'ena Sensor is now calibrated");
-                calibrateBtn.setVisibility(View.GONE);
+                calibrationImg.setImageResource(R.drawable.success);
+                instruction.setText(R.string.calibrationSuccessString);
+                calibrateBtn.setVisibility(View.INVISIBLE);
                 finishTimer = new CountDownTimer(3000, 10) {
                     public void onTick(long millisUntilFinished) {
 
@@ -66,15 +65,12 @@ public class SensorCalibration extends AppCompatActivity {
                 };
                 finishTimer.start();
             } else if(calibrating == 6) {
-                instruction.setText("Your T'ena Sensor is calibrated");
+                instruction.setText(R.string.calibrationSuccessString);
                 calibrateBtn.setVisibility(View.VISIBLE);
-                calibrateBtn.setEnabled(true);
-                calibrateBtn.setText("Recalibrate Sensor");
             } else if(timeout) {
                 Toast.makeText(getApplicationContext(), "Calibration timed out, please try again", Toast.LENGTH_SHORT).show();
+                calibrateBtn.setVisibility(View.VISIBLE);
                 timeout = false;
-                calibrateBtn.setEnabled(true);
-                calibrateBtn.setText("Calibrate Sensor");
                 calibrating--;
             }
             mHandler.postDelayed(mStatusChecker, mInterval);
@@ -108,8 +104,8 @@ public class SensorCalibration extends AppCompatActivity {
         calibrateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calibrateBtn.setEnabled(false);
-                calibrateBtn.setText("Calibrating… Do not move sensor");
+                calibrateBtn.setVisibility(View.INVISIBLE);
+                instruction.setText(R.string.calibrationInProgressString);
                 timeout = false;
                 startTimer();
                 if(calibrating == 6)

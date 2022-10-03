@@ -7,10 +7,14 @@
     <string name="btnSensorExercisesString">Sensor Exercises</string>
     <string name="btnConnectToSensorString">Connect to Sensor</string>
     <string name="connectSensorString">Connect Sensor</string>
+    <string name="btSuccessMessage"><b>You are now connected</b>\n\nYour T\'ena sensor\nis now connected</string>
+    <string name="btConnectMessage">Click the icon to\nconnect your sensor</string>
+    <string name="btFailureMessage"><b>Could not connect</b>\n\nCheck the Bluetooth\nconnection and try again</string>
 
     <!-- activity_login_firebase.xml & activity_create_account.xml String Resources -->
     <string name="btnSignInString">Sign In</string>
     <string name="btnRegisterString">Register</string>
+    <string name="btnSignUpString">SIGN UP</string>
     <string name="btnLogInString">LOG IN</string>
     <string name="btnLogInToSignUpString">Don\'t have an account? Sign Up</string>
     <string name="passwordLoginString">Password</string>
@@ -46,14 +50,28 @@
     <string name="btnGoToDataCollectionString">Click to start data collection </string>
 
     <!-- activity_record_data.xml String Resources -->
+    <string name="collectData">Collecting Data</string>
+    <string name="blockExercise"><b>Block Placing</b></string>
+    <string name="fingerNoseExercise"><b>Finger to Nose</b></string>
+    <string name="cupExercise"><b>Cup Pouring</b></string>
+    <string name="rodExercise"><b>Rod Placing</b></string>
+    <string name="flatExercise">Place your hand flat on the\ntable and stay still</string>
+    <string name="sideExercise">Place your hand flat by your\nside and stay still</string>
+    <string name="exerciseInProgress">When you have completed the\ntrial, place your hand back on the\ntable and stay still</string>
+    <string name="exerciseComplete"><b>Success</b>\n\nYou have completed\nthis exercise for today.</string>
+    <string name="allExercisesComplete"><b>Success</b>\n\nYou have completed\nall exercises for today.</string>
     <string name="stopExerciseString">Exit Exercise</string>
     <string name="nextTrialString">Next trial</string>
     <string name="stopCollectionString">Stop Data Collection</string>
+    <string name="percent">\npercent</string>
 
     <!-- activity_calibration.xml String Resources -->
     <string name="sensorCalibration">Sensor Calibration</string>
-    <string name="calibrationInstructionString">Place the T\'ena sensor \non a level surface.</string>
-    <string name="btnStartCalibrateString">Calibrate Sensor</string>
+    <string name="calibrationStepOneString"><b>Step One</b>\n\nPlace the T\'ena sensor\non a level surface.</string>
+    <string name="calibrationInProgressString"><b>Calibration in Progress</b></string>
+    <string name="calibrationStepTwoString"><b>Step Two</b>\n\nPlace the T\'ena sensor\nface down in its cradle.</string>
+    <string name="calibrationSuccessString"><b>Success</b>\n\nYour T\'ena sensor\nis now calibrated.</string>
+    <string name="btnStartCalibrateString">Next</string>
     <string name="selectExerciseString">Sensor Exercises</string>
 
     <!-- fragment_bluetooth.xml String Resources -->

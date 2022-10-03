@@ -131,12 +131,13 @@ public class BluetoothService extends Service {
                 Log.d("DEBUG", "handleMessage");
                 if(!connected) {
                     connected = true;
+                    BluetoothConnect.updateView(1);
                     Toast.makeText(getApplicationContext(), "Connected to " + NAME, Toast.LENGTH_SHORT).show();
                 }
                 if (msg.what == handlerState) {                       //if message is what we want
                     String readMessage = (String) msg.obj;                                                                // msg.arg1 = bytes from connect thread
                     recDataString.append(readMessage);
-                    BluetoothConnect.updateView(true);
+                    BluetoothConnect.updateView(1);
                     Log.d("RECORDED", recDataString.toString());
                     // Do stuff here with your data, like adding it to the database
                     if(ExercisePerform.isRecording()) {
@@ -240,7 +241,7 @@ public class BluetoothService extends Service {
                                 // LambdaFunctionException.
                                 try {
                                     return myInterface.TenaFunction(params[0]);
-                                } catch (LambdaFunctionException lfe) {
+                                } catch (Exception lfe) {
                                     Log.e("Tag", "Failed to invoke echo", lfe);
                                     return null;
                                 }
@@ -405,11 +406,15 @@ public class BluetoothService extends Service {
         super.onDestroy();
         bluetoothIn.removeCallbacksAndMessages(null);
         stopThread = true;
-        if(connected)
+        if(connected) {
             Toast.makeText(getApplicationContext(), "Disconnecting from " + NAME, Toast.LENGTH_SHORT).show();
+            BluetoothConnect.updateView(2);
+        }
         else {
-            if(NAME != null)
+            if(NAME != null) {
+                BluetoothConnect.updateView(0);
                 Toast.makeText(getApplicationContext(), "Connection to " + NAME + " Failed", Toast.LENGTH_SHORT).show();
+            }
         }
         if(stream != null) {
             try {
@@ -431,7 +436,6 @@ public class BluetoothService extends Service {
             mConnectingThread.closeSocket();
         }
         BluetoothSelection.deviceAccepted(false);
-        BluetoothConnect.updateView(false);
         Log.d("SERVICE", "onDestroy");
     }
 
@@ -446,7 +450,6 @@ public class BluetoothService extends Service {
 
         if (btAdapter == null) {
             Log.d("BT SERVICE", "BLUETOOTH NOT SUPPORTED BY DEVICE, STOPPING SERVICE");
-            BluetoothConnect.updateView(false);
             stopSelf();
         } else {
             if (btAdapter.isEnabled()) {
@@ -459,12 +462,10 @@ public class BluetoothService extends Service {
                 } catch (IllegalArgumentException e) {
                     Log.d("DEBUG BT", "PROBLEM WITH MAC ADDRESS : " + e.toString());
                     Log.d("BT SEVICE", "ILLEGAL MAC ADDRESS, STOPPING SERVICE");
-                    BluetoothConnect.updateView(false);
                     stopSelf();
                 }
             } else {
                 Log.d("BT SERVICE", "BLUETOOTH NOT ON, STOPPING SERVICE");
-                BluetoothConnect.updateView(false);
                 stopSelf();
             }
         }

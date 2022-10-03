@@ -36,6 +36,7 @@ public class ExercisePerform extends AppCompatActivity {
     private static boolean complete = false;
     private static int trial;
 
+    private final int NUM_TRIALS = 5;
 
     //Declare timers
     private CountDownTimer cTimer, finishTimer;
@@ -97,6 +98,20 @@ public class ExercisePerform extends AppCompatActivity {
                 // Stop and remove Newton's Cradle animation
                 newton.setVisibility(View.INVISIBLE);
                 newtonAnimation.stop();
+                switch (ExerciseSelection.getExercise()) {
+                    case "BlockPlacing":
+                        status.setText(R.string.blockExercise);
+                        break;
+                    case "FingerToNose":
+                        status.setText(R.string.fingerNoseExercise);
+                        break;
+                    case "CupPouring":
+                        status.setText(R.string.cupExercise);
+                        break;
+                    case "RodPlacing":
+                        status.setText(R.string.rodExercise);
+                        break;
+                }
 
                 // Remove stop button
                 stopBtn.setVisibility(View.GONE);
@@ -107,10 +122,10 @@ public class ExercisePerform extends AppCompatActivity {
                     stopExerciseBtn.setVisibility(View.VISIBLE);
                     contExerciseBtn.setVisibility(View.VISIBLE);
 
+
                     // Display number of trials completed
-                    status.setText("Today's Repetitions");
                     reps.setVisibility(View.VISIBLE);
-                    reps.setText(trial + " / 5");
+                    reps.setText(trial * 100 / NUM_TRIALS + getString(R.string.percent));
                     repBar2.setVisibility(View.VISIBLE);
                     repBar1.setVisibility(View.VISIBLE);
                     repBar1.setProgress(trial);
@@ -118,7 +133,7 @@ public class ExercisePerform extends AppCompatActivity {
                 // When all trials are completed
                 else {
                     // Notify user
-                    status.setText("You are all done with this exercise for today");
+                    status.setText(R.string.exerciseComplete);
 
                     // Display checkmark image
                     check.setVisibility(View.VISIBLE);
@@ -183,7 +198,11 @@ public class ExercisePerform extends AppCompatActivity {
      */
     void startTimer() {
         // Notifies user that data is about to be recorded
-        status.setText("Please keep still");
+        if(ExerciseSelection.getExercise().equals("FingerToNose")){
+            status.setText(R.string.sideExercise);
+        } else {
+            status.setText(R.string.flatExercise);
+        }
         mProgressBar.setVisibility(View.VISIBLE);
         mProgressBar1.setVisibility(View.VISIBLE);
         mProgressBar1.setMax(3000);
@@ -216,7 +235,7 @@ public class ExercisePerform extends AppCompatActivity {
                 newton.setVisibility(View.VISIBLE);
                 newtonAnimation.start();
                 stopBtn.setVisibility(View.VISIBLE);
-                status.setText("Data collection in progress");
+                status.setText(R.string.exerciseInProgress);
                 recording = true;
             }
         };
