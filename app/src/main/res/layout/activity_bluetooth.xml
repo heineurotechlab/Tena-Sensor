@@ -19,7 +19,7 @@
             android:text="@string/connectSensorString"
             android:ellipsize="end"
             android:textStyle="bold"
-            android:textSize="24dp"
+            android:textSize="@dimen/headerSize"
             android:textColor="@color/colorText"
             android:layout_gravity="center"/>
 
@@ -39,8 +39,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="120dp"
-            android:paddingBottom="70dp">
+            android:paddingHorizontal="@dimen/imageSize"
+            android:paddingBottom="@dimen/imageOffset">
             <ImageView
                 android:id="@+id/connected"
                 android:layout_width="match_parent"

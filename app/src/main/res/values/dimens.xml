@@ -6,4 +6,6 @@
     <dimen name="listTextSize">14dp</dimen>
     <dimen name="fontSize">20sp</dimen>
     <dimen name="headerSize">30sp</dimen>
+    <dimen name="imageSize">80dp</dimen>
+    <dimen name="imageOffset">70dp</dimen>
 </resources>
