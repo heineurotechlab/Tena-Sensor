@@ -53,6 +53,17 @@ import java.util.UUID;
 
 public class BluetoothService extends Service {
 
+    // Constants for detecting whether hand is moving
+    // Used in BluetoothConnect.java
+    private final double XMOVELOW = -0.001;
+    private final double XMOVEHIGH = 0.6;
+    private final double YMOVEHIGH = 0.2;
+
+    // Constants for detecting whether hand calibration is invalid
+    // Used in SensorCalibration.java
+    private final double ZGYRSTD = 1.0;
+    private final double XACCSTD = 0.10;
+
     final int handlerState = 0;                        //used to identify handler message
     Handler bluetoothIn;
     private BluetoothAdapter btAdapter = null;
@@ -140,7 +151,34 @@ public class BluetoothService extends Service {
                     BluetoothConnect.updateView(1);
                     Log.d("RECORDED", recDataString.toString());
                     // Do stuff here with your data, like adding it to the database
-                    if(ExercisePerform.isRecording()) {
+                    if(ExercisePerform.isRecording() == 1) {
+                        for(String message :  readMessage.split("\n")) {
+                            if(!messageFragment.isEmpty()) {
+                                message = messageFragment + message;
+                                messageFragment = "";
+                            }
+                            String[] splitMessage = message.split(", ");
+                            if(splitMessage.length == 7 && message.length() >= 60 && message.charAt(0) == ',') {
+                                double[] sample = new double[splitMessage.length];
+                                for(int i = 0; i < splitMessage.length; i++){
+                                    try {
+                                        sample[i] = Double.parseDouble(splitMessage[i]);
+                                    } catch (NumberFormatException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                Log.i("Accx", String.valueOf(sample[1] - calib_flat[0]));
+                                Log.i("Accy", String.valueOf(sample[2] - calib_flat[1]));
+                                if(sample[1] - calib_flat[0] < XMOVELOW || sample[1] - calib_flat[0] > XMOVEHIGH || sample[2] - calib_flat[1] > YMOVEHIGH) {
+                                    ExercisePerform.setFailed(true);
+                                }
+                            } else if(splitMessage.length > 7) {
+                            }
+                            else {
+                                messageFragment = message;
+                            }
+                        }
+                    } else if(ExercisePerform.isRecording() == 2) {
                         if(stream == null) {
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy-hh-mm-ss");
                             String format = simpleDateFormat.format(new Date());
@@ -186,12 +224,12 @@ public class BluetoothService extends Service {
                                         e.printStackTrace();
                                     }
                                 }
-                                accx.add(sample[1]);
-                                accy.add(sample[2]);
-                                accz.add(sample[3]);
-                                gyrx.add(sample[4]);
-                                gyry.add(sample[5]);
-                                gyrz.add(sample[6]);
+                                accx.add(sample[1] - calib_flat[0]);
+                                accy.add(sample[2] - calib_flat[1]);
+                                accz.add(sample[3] - calib_flat[2]);
+                                gyrx.add(sample[4] - calib_flat[3]);
+                                gyry.add(sample[5] - calib_flat[4]);
+                                gyrz.add(sample[6] - calib_flat[5]);
 
                             } else if(splitMessage.length > 7) {
                             }
@@ -350,13 +388,13 @@ public class BluetoothService extends Service {
                                 }
                             }
                             for(double element : (List<Double>) gyrzMap.get("stdFilter")){
-                                if(element > 1.0) {
+                                if(element > ZGYRSTD) {
                                     calibration_failed = true;
                                     break;
                                 }
                             }
                             for(Object element : accxMap.get("stdFilter")){
-                                if((Double) element > 0.10) {
+                                if((Double) element > XACCSTD) {
                                     calibration_failed = true;
                                     break;
                                 }

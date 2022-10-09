@@ -24,6 +24,9 @@ import android.widget.TextView;
  */
 public class ExercisePerform extends AppCompatActivity {
 
+    // Time before trial starts (milliseconds)
+    private final int COUNTDOWN_TIME = 3000;
+
     // Declare GUI Components
     private Button stopBtn, stopExerciseBtn, contExerciseBtn, homeBtn;
     private TextView status, reps;
@@ -32,9 +35,10 @@ public class ExercisePerform extends AppCompatActivity {
     private ProgressBar mProgressBar, mProgressBar1, repBar1, repBar2;
 
     // Static variables which are meant to be accessed from BluetoothService.java for recording data
-    private static boolean recording = false;
+    private static int recording = 0;
     private static boolean complete = false;
     private static int trial;
+    private static boolean handStill = true;
 
     private final int NUM_TRIALS = 5;
 
@@ -46,6 +50,7 @@ public class ExercisePerform extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_data);
 
+        // Initialize trial
         trial = 1;
 
         // Assign models to views
@@ -95,9 +100,12 @@ public class ExercisePerform extends AppCompatActivity {
         stopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Stop and remove Newton's Cradle animation
+
+                // Stop and remove Animation
                 newton.setVisibility(View.INVISIBLE);
                 newtonAnimation.stop();
+
+                // Set text depending on exercise selected in previous activity, ExerciseSelection.java
                 switch (ExerciseSelection.getExercise()) {
                     case "BlockPlacing":
                         status.setText(R.string.blockExercise);
@@ -120,8 +128,8 @@ public class ExercisePerform extends AppCompatActivity {
                 if(trial < 5) {
                     // Display buttons for stopping or continuing exercise
                     stopExerciseBtn.setVisibility(View.VISIBLE);
+                    contExerciseBtn.setText(R.string.nextTrialString);
                     contExerciseBtn.setVisibility(View.VISIBLE);
-
 
                     // Display number of trials completed
                     reps.setVisibility(View.VISIBLE);
@@ -136,10 +144,11 @@ public class ExercisePerform extends AppCompatActivity {
                     status.setText(R.string.exerciseComplete);
 
                     // Display checkmark image
+                    check.setImageResource(R.drawable.success);
                     check.setVisibility(View.VISIBLE);
 
                     // After 3 seconds, return to exercise selection screen
-                    finishTimer = new CountDownTimer(3000, 10) {
+                    finishTimer = new CountDownTimer(COUNTDOWN_TIME, 10) {
                         public void onTick(long millisUntilFinished) {}
                         public void onFinish() {
                             Intent intent = new Intent(ExercisePerform.this, ExerciseSelection.class);
@@ -148,9 +157,10 @@ public class ExercisePerform extends AppCompatActivity {
                     };
                     finishTimer.start();
                 }
-                trial++;
 
-                recording = false;
+                //  Transitioning to next trial
+                trial++;
+                recording = 0;
                 complete = true;
             }
         });
@@ -172,6 +182,9 @@ public class ExercisePerform extends AppCompatActivity {
                 // Removes buttons
                 stopExerciseBtn.setVisibility(View.GONE);
                 contExerciseBtn.setVisibility(View.GONE);
+
+                // Remove error image if applicable
+                check.setVisibility(View.INVISIBLE);
 
                 // Removes repetition progress view
                 reps.setVisibility(View.GONE);
@@ -203,21 +216,50 @@ public class ExercisePerform extends AppCompatActivity {
         } else {
             status.setText(R.string.flatExercise);
         }
+
+        // Display Circular Timer counting down
         mProgressBar.setVisibility(View.VISIBLE);
         mProgressBar1.setVisibility(View.VISIBLE);
-        mProgressBar1.setMax(3000);
+        mProgressBar1.setMax(COUNTDOWN_TIME);
+
+        // Display Hand
         hand.setVisibility(View.VISIBLE);
-        //mTextField.setVisibility(View.VISIBLE);
+
+        // In Pre-Recording Stage
+        recording = 1;
+        setFailed(false);
+
+        // Hide Animation
         newton.setVisibility(View.INVISIBLE);
-        cTimer = new CountDownTimer(3000, 10) {
+        cTimer = new CountDownTimer(COUNTDOWN_TIME, 10) {
             /**
              * Called after each countdown interval
              * @param millisUntilFinished The number of milliseconds until timer is finished
              */
             public void onTick(long millisUntilFinished) {
-                // Update circular timer
-                //mTextField.setText(millisUntilFinished / 1000 + ":" + (millisUntilFinished / 10) % 100);
-                mProgressBar1.setProgress((int) (millisUntilFinished));
+                // On each tick, checks whether user is moving
+                if(handStill) {
+                    // Update circular timer if no movement
+                    mProgressBar1.setProgress((int) (millisUntilFinished));
+                } else {
+                    // Movement invalidates the trial and must be restarted
+                    recording = 0;
+
+                    // Stop and remove timer immediately
+                    cancelTimer();
+                    mProgressBar.setVisibility(View.GONE);
+                    mProgressBar1.setVisibility(View.GONE);
+
+                    // Display buttons for stopping or continuing exercise
+                    stopExerciseBtn.setVisibility(View.VISIBLE);
+                    contExerciseBtn.setVisibility(View.VISIBLE);
+                    contExerciseBtn.setText(R.string.retryTrialString);
+
+                    // Display error image and message
+                    check.setImageResource(R.drawable.error);
+                    check.setVisibility(View.VISIBLE);
+                    status.setText(R.string.exerciseFailed);
+                }
             }
 
             /**
@@ -236,7 +278,7 @@ public class ExercisePerform extends AppCompatActivity {
                 newtonAnimation.start();
                 stopBtn.setVisibility(View.VISIBLE);
                 status.setText(R.string.exerciseInProgress);
-                recording = true;
+                recording = 2;
             }
         };
         cTimer.start();
@@ -255,7 +297,7 @@ public class ExercisePerform extends AppCompatActivity {
      * Method for getting status of recording
      * @return Boolean for whether data is being recorded
      */
-    public static boolean isRecording() {
+    public static int isRecording() {
         return recording;
     }
 
@@ -267,8 +309,20 @@ public class ExercisePerform extends AppCompatActivity {
         return complete;
     }
 
+    /**
+     * Method for getting status of trial completion
+     * @param isComplete Boolean for whether trial is complete
+     */
     public static void setComplete(boolean isComplete) {
         complete = isComplete;
+    }
+
+    /**
+     * Method for setting exercise failure
+     * @param failed Boolean for whether trial has failed
+     */
+    public static void setFailed(boolean failed) {
+        handStill = !failed;
     }
 
     /**

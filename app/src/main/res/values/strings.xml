@@ -57,11 +57,13 @@
     <string name="rodExercise"><b>Rod Placing</b></string>
     <string name="flatExercise">Place your hand flat on the\ntable and stay still</string>
     <string name="sideExercise">Place your hand flat by your\nside and stay still</string>
+    <string name="exerciseFailed"><b>Movement Detected</b>\n\nPlease keep your hand still\nand try again.</string>
     <string name="exerciseInProgress">When you have completed the\ntrial, place your hand back on the\ntable and stay still</string>
     <string name="exerciseComplete"><b>Success</b>\n\nYou have completed\nthis exercise for today.</string>
     <string name="allExercisesComplete"><b>Success</b>\n\nYou have completed\nall exercises for today.</string>
     <string name="stopExerciseString">Exit Exercise</string>
     <string name="nextTrialString">Next trial</string>
+    <string name="retryTrialString">Retry trial</string>
     <string name="stopCollectionString">Stop Data Collection</string>
     <string name="percent">\npercent</string>
 

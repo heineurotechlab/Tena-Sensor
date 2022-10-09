@@ -3522,6 +3522,7 @@ string default_web_client_id
 string devicePairingHeader
 string error_icon_content_description
 string exerciseComplete
+string exerciseFailed
 string exerciseInProgress
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -3625,6 +3626,7 @@ string path_password_strike_through
 string percent
 string project_id
 string register_title
+string retryTrialString
 string rodExercise
 string rod_instructions
 string search_menu_title
