@@ -82,9 +82,9 @@ public class ExerciseInstructions extends AppCompatActivity {
         startBtn = (Button)findViewById(R.id.StartExerciseButton);
 
         // Set Action Bar
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.header);
-        homeBtn = (Button)findViewById(R.id.home_button);
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.header);
+        /*homeBtn = (Button)findViewById(R.id.home_button);
 
         // When Home Button is clicked
         homeBtn.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class ExerciseInstructions extends AppCompatActivity {
                 Intent intent = new Intent(ExerciseInstructions.this, MainActivity.class);
                 ExerciseInstructions.this.startActivity(intent);
             }
-        });
+        });*/
 
         // When Start Button is clicked
         startBtn.setOnClickListener(new View.OnClickListener() {

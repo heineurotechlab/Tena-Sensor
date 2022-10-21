@@ -72,9 +72,9 @@ public class ExercisePerform extends AppCompatActivity {
         }
 
         // Set Action Bar
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.header);
-        homeBtn = (Button)findViewById(R.id.home_button);
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.header);
+        //homeBtn = (Button)findViewById(R.id.home_button);
 
         // Assign models to circular timers
         mProgressBar = (ProgressBar) findViewById(R.id.progressbar_timerview);
@@ -87,14 +87,14 @@ public class ExercisePerform extends AppCompatActivity {
         startTimer();
 
         // When Home Button is clicked
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        /*homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Goes to Home Page
                 Intent intent = new Intent(ExercisePerform.this, MainActivity.class);
                 ExercisePerform.this.startActivity(intent);
             }
-        });
+        });*/
 
         // When Stop Recording Button is clicked during the recording of a trial
         stopBtn.setOnClickListener(new View.OnClickListener() {

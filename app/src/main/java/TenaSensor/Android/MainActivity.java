@@ -83,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(ICONS[2]);
         tabLayout.getTabAt(3).setIcon(ICONS[3]);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.header);
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.header);
 
-        findViewById(R.id.settings).setVisibility(View.VISIBLE);
+        //findViewById(R.id.settings).setVisibility(View.VISIBLE);
 
-        homeBtn = (Button)findViewById(R.id.home_button);
+        /*homeBtn = (Button)findViewById(R.id.home_button);
         settingsBtn = (Button)findViewById(R.id.settings_button);
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, BluetoothSelection.class);
                 MainActivity.this.startActivity(intent);
             }
-        });
+        });*/
     }
     /*
     @Override

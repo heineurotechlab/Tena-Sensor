@@ -37,11 +37,11 @@ public class ExerciseSelection extends AppCompatActivity {
         rodBtn = (Button)findViewById(R.id.rod_button);
 
         // Set Action Bar
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.header);
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.header);
 
         // Assign home button model to view
-        homeBtn = (Button)findViewById(R.id.home_button);
+        /*homeBtn = (Button)findViewById(R.id.home_button);
 
         // When Home Button is clicked
         homeBtn.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class ExerciseSelection extends AppCompatActivity {
                 Intent intent = new Intent(ExerciseSelection.this, MainActivity.class);
                 ExerciseSelection.this.startActivity(intent);
             }
-        });
+        });*/
 
         // When Block Exercise Button is clicked
         blkBtn.setOnClickListener(new View.OnClickListener() {

@@ -13,25 +13,58 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:src="@drawable/logo_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginVertical="20dp"
+            android:id="@+id/action_bar_title"
+            android:text="@string/slogan"
+            android:textColor="@color/colorText"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10pt"
+            android:layout_gravity="start"
+            android:textColor="@color/colorText"
+            android:labelFor="@+id/username"
+            android:text="@string/usernameLoginString"
+            />
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="4pt"
-            android:layout_marginLeft="4pt"
-            android:layout_marginTop="10pt"
             android:textColor="@color/colorText"
-            android:hint="@string/usernameLoginString"/>
+            android:backgroundTint="@color/colorText"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10pt"
+            android:layout_gravity="start"
+            android:labelFor="@+id/password1"
+            android:textColor="@color/colorText"
+            android:text="@string/passwordLoginString"
+            />
         <EditText
             android:id="@+id/password1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10pt"
-            android:layout_marginLeft="4pt"
-            android:layout_marginRight="4pt"
             android:textColor="@color/colorText"
-            android:inputType="textPassword"
-            android:hint="@string/passwordLoginString"/>
+            android:backgroundTint="@color/colorText"
+            android:inputType="textPassword"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

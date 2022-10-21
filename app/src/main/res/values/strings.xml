@@ -14,9 +14,9 @@
     <!-- activity_login_firebase.xml & activity_create_account.xml String Resources -->
     <string name="btnSignInString">Sign In</string>
     <string name="btnRegisterString">Register</string>
-    <string name="btnSignUpString">SIGN UP</string>
-    <string name="btnLogInString">LOG IN</string>
-    <string name="btnLogInToSignUpString">Don\'t have an account? Sign Up</string>
+    <string name="btnSignUpString">Sign Up</string>
+    <string name="btnLogInString">Log In</string>
+    <string name="btnForgotPasswordString">Forgot Password?</string>
     <string name="passwordLoginString">Password</string>
     <string name="usernameLoginString">Username</string>
 
@@ -50,7 +50,7 @@
     <string name="btnGoToDataCollectionString">Click to start data collection </string>
 
     <!-- activity_record_data.xml String Resources -->
-    <string name="collectData">Collecting Data</string>
+    <string name="collectData"><b>Collecting Data</b></string>
     <string name="blockExercise"><b>Block Placing</b></string>
     <string name="fingerNoseExercise"><b>Finger to Nose</b></string>
     <string name="cupExercise"><b>Cup Pouring</b></string>
@@ -68,7 +68,7 @@
     <string name="percent">\npercent</string>
 
     <!-- activity_calibration.xml String Resources -->
-    <string name="sensorCalibration">Sensor Calibration</string>
+    <string name="sensorCalibration"><b>Sensor Calibration</b></string>
     <string name="calibrationStepOneString"><b>Step One</b>\n\nPlace the T\'ena sensor\non a level surface.</string>
     <string name="calibrationInProgressString"><b>Calibration in Progress</b></string>
     <string name="calibrationStepTwoString"><b>Step Two</b>\n\nPlace the T\'ena sensor\nface down in its cradle.</string>
@@ -82,5 +82,6 @@
     <string name="availableDevicesHeader">AVAILABLE DEVICES</string>
     <string name="connectionSuccessfulMessage"><b>You are now connected.</b> \nYour T\'ena Sensor is now connected.</string>
     <string name="btnFinishPairingString">Finish</string>
+    <string name="exerciseHeaderString">Sensor Exercises</string>
 
 </resources>

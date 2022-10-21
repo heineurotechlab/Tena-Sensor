@@ -85,21 +85,21 @@ public class SensorCalibration extends AppCompatActivity {
         instruction = (TextView)findViewById(R.id.calibrate_instructions);
         calibrationImg = (ImageView)findViewById(R.id.calibrate_image);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.header);
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.header);
 
-        homeBtn = (Button)findViewById(R.id.home_button);
+        //homeBtn = (Button)findViewById(R.id.home_button);
 
         mHandler = new Handler();
         mStatusChecker.run();
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        /*homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SensorCalibration.this, MainActivity.class);
                 SensorCalibration.this.startActivity(intent);
             }
-        });
+        });*/
 
         calibrateBtn.setOnClickListener(new View.OnClickListener() {
             @Override

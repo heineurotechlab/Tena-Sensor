@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.linkedin_login);
+        setContentView(R.layout.activity_create_account);
         user_name=findViewById(R.id.username);
         pass_word=findViewById(R.id.password1);
         btn2_signup=findViewById(R.id.sign);

@@ -6,20 +6,25 @@
     android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
-        android:gravity="center"
-        android:text="@string/sensorCalibration"
-        android:textSize="@dimen/headerSize"
-        android:textColor="@color/colorText"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:text="@string/sensorCalibration"
+            android:textSize="@dimen/headerSize"
+            android:textColor="@color/colorText"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:visibility="visible"
-        android:background="@color/colorText"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:visibility="visible"
+            android:background="@color/colorText"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
