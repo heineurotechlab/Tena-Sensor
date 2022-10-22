@@ -140,9 +140,15 @@ public class ExercisePerform extends AppCompatActivity {
                 }
                 // When all trials are completed
                 else {
-                    // Notify user
-                    status.setText(R.string.exerciseComplete);
 
+                    ExerciseSelection.completeExercise(ExerciseSelection.getExercise());
+
+                    // Notify user
+                    if(ExerciseSelection.allExercisesComplete()) {
+                        status.setText(R.string.allExercisesComplete);
+                    } else {
+                        status.setText(R.string.exerciseComplete);
+                    }
                     // Display checkmark image
                     check.setImageResource(R.drawable.success);
                     check.setVisibility(View.VISIBLE);
@@ -151,8 +157,13 @@ public class ExercisePerform extends AppCompatActivity {
                     finishTimer = new CountDownTimer(COUNTDOWN_TIME, 10) {
                         public void onTick(long millisUntilFinished) {}
                         public void onFinish() {
-                            Intent intent = new Intent(ExercisePerform.this, ExerciseSelection.class);
-                            ExercisePerform.this.startActivity(intent);
+                            if(ExerciseSelection.allExercisesComplete()) {
+                                Intent intent = new Intent(ExercisePerform.this, BluetoothConnect.class);
+                                ExercisePerform.this.startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(ExercisePerform.this, ExerciseSelection.class);
+                                ExercisePerform.this.startActivity(intent);
+                            }
                         }
                     };
                     finishTimer.start();
@@ -238,7 +249,7 @@ public class ExercisePerform extends AppCompatActivity {
              */
             public void onTick(long millisUntilFinished) {
                 // On each tick, checks whether user is moving
-                if(handStill) {
+                if(true) {
                     // Update circular timer if no movement
                     mProgressBar1.setProgress((int) (millisUntilFinished));
                 } else {

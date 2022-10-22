@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Amir Modan (amir5modan@gmail.com)
  * Activity in which the user selects an exercise to perform
@@ -25,6 +28,14 @@ public class ExerciseSelection extends AppCompatActivity {
     private Button blkBtn, ftnBtn, cupBtn, rodBtn, homeBtn;
     private static String exercise = "Exercise";
 
+    private static Map<String, Boolean> exerciseMap;
+    static {
+        exerciseMap = new HashMap<>();
+        exerciseMap.put("BlockPlacing", false);
+        exerciseMap.put("FingerToNose", false);
+        exerciseMap.put("CupDrinking", false);
+        exerciseMap.put("RodPlacing", false);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,5 +125,18 @@ public class ExerciseSelection extends AppCompatActivity {
      */
     public static String getExercise() {
         return exercise;
+    }
+
+    public static boolean allExercisesComplete() {
+        for(Boolean b : exerciseMap.values()) {
+            if(!b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void completeExercise(String exercise) {
+        exerciseMap.put(exercise,true);
     }
 }

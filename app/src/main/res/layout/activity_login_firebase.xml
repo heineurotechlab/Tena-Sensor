@@ -8,15 +8,14 @@
     android:padding="@dimen/activity_horizontal_margin"
     android:background="@color/colorBackground"
     tools:context=".LinkedInLogin">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_gravity="center"
             android:layout_marginVertical="20dp"
             android:src="@drawable/logo_white" />
 
@@ -29,7 +28,7 @@
             android:id="@+id/action_bar_title"
             android:text="@string/slogan"
             android:textColor="@color/colorText"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/fontSize"/>
 
         <TextView
             android:layout_width="wrap_content"
