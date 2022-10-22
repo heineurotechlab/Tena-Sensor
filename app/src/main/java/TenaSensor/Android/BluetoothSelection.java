@@ -69,7 +69,7 @@ public class BluetoothSelection extends Activity {
         bv = (LinearLayout) findViewById(R.id.BT_Success_Button);
         successBtn = (Button) findViewById(R.id.FinishBT);
 
-        mBTArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        mBTArrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view, R.id.list_content);
         mBTAdapter = BluetoothAdapter.getDefaultAdapter(); // get a handle on the bluetooth radio
 
         listPairedDevices();
@@ -167,10 +167,8 @@ public class BluetoothSelection extends Activity {
                         editor.putString("2", name);
                         editor.commit();
 
-                        cv.setVisibility(View.GONE);
-                        tv.setVisibility(View.VISIBLE);
-                        iv.setVisibility(View.VISIBLE);
-                        bv.setVisibility(View.VISIBLE);
+                        Intent selectIntent = new Intent(BluetoothSelection.this, MainActivity.class);
+                        BluetoothSelection.this.startActivity(selectIntent);
                     }
                     /*else if(accepted == 0) {
                         this.cancel();

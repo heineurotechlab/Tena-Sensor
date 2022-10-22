@@ -67,6 +67,7 @@ public class BluetoothConnect extends Fragment {
     private Button exerciseButton;
     private Button calibrateButton;
     private Button connectButton;
+    private Button settingsButton;
     private static int connected = 2;
 
     private String name, address;
@@ -147,6 +148,7 @@ public class BluetoothConnect extends Fragment {
         exerciseButton = v.findViewById(R.id.ExerciseButton);
         calibrateButton = v.findViewById(R.id.CalibrateButton);
         connectButton = v.findViewById(R.id.ConnectButton);
+        settingsButton = v.findViewById(R.id.settings);
         connectedImage = v.findViewById(R.id.connected);
         status = v.findViewById(R.id.bt_status);
         return v;
@@ -245,6 +247,15 @@ public class BluetoothConnect extends Fragment {
                 e.printStackTrace();
             }
         }
+
+        // Toggle connection to T'ena Sensor
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent bluetoothIntent = new Intent(getContext(), BluetoothSelection.class);
+                startActivity(bluetoothIntent);
+            }
+        });
 
         // Toggle connection to T'ena Sensor
         bluetoothButton.setOnClickListener(new View.OnClickListener() {

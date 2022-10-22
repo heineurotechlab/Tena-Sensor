@@ -2388,6 +2388,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen subtitleSize
 dimen test_dimen
 dimen test_mtrl_calendar_day_cornerSize
 dimen test_navigation_bar_active_item_max_width
@@ -2818,7 +2819,6 @@ id closest
 id collapseActionView
 id compress
 id confirm_button
-id connect
 id connectButton
 id connected
 id constraint
@@ -2920,7 +2920,6 @@ id header_title
 id hideable
 id home
 id homeAsUp
-id home_button
 id honorRequest
 id horizontal_only
 id icon
@@ -2951,6 +2950,7 @@ id linear
 id listMode
 id listView1
 id listView1_hack
+id list_content
 id list_item
 id logo
 id masked
@@ -2976,7 +2976,6 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
-id menu_settings
 id message
 id middle
 id mini
@@ -3104,7 +3103,6 @@ id selected
 id selection_type
 id separator
 id settings
-id settings_button
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3349,8 +3347,8 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_bluetooth
 layout google_register
-layout header
 layout linkedin_login
+layout list_view
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3425,7 +3423,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap myocolors
@@ -3477,9 +3474,9 @@ string btSuccessMessage
 string btnCalibrateSensorString
 string btnConnectToSensorString
 string btnFinishPairingString
+string btnForgotPasswordString
 string btnGoToDataCollectionString
 string btnLogInString
-string btnLogInToSignUpString
 string btnRegisterString
 string btnSensorExercisesString
 string btnSignInString
@@ -3523,6 +3520,7 @@ string devicePairingHeader
 string error_icon_content_description
 string exerciseComplete
 string exerciseFailed
+string exerciseHeaderString
 string exerciseInProgress
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
