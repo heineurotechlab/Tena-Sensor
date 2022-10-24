@@ -158,7 +158,7 @@ public class ExercisePerform extends AppCompatActivity {
                         public void onTick(long millisUntilFinished) {}
                         public void onFinish() {
                             if(ExerciseSelection.allExercisesComplete()) {
-                                Intent intent = new Intent(ExercisePerform.this, BluetoothConnect.class);
+                                Intent intent = new Intent(ExercisePerform.this, MainActivity.class);
                                 ExercisePerform.this.startActivity(intent);
                             } else {
                                 Intent intent = new Intent(ExercisePerform.this, ExerciseSelection.class);
